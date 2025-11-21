@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThinkWithIT - Our Team</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #fff;
+            background-color: #000;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Enhanced Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.98) 0%, rgba(0, 20, 40, 0.95) 100%);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 12px 0;
+            border-bottom: 1px solid #00ff00;
+            box-shadow: 0 4px 20px rgba(0, 255, 0, 0.1);
+            animation: slideDown 0.8s ease-out;
+            transition: all 0.3s ease;
+        }
+        header.scrolled {
+            padding: 8px 0;
+            background: rgba(0, 0, 0, 0.98);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #00ff00;
+            text-shadow: 0 0 15px #00ff00, 0 0 30px rgba(0, 255, 0, 0.5);
+            animation: pulse 3s infinite;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 20px #00ff00, 0 0 40px rgba(0, 255, 0, 0.8);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .nav-links li {
+            position: relative;
+        }
+        .nav-links a {
+            color: #fff;
+            font-weight: 500;
+            padding: 12px 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        .nav-links a:hover::before {
+            left: 100%;
+        }
+        .nav-links a:hover {
+            color: #00ff00;
+            background: rgba(0, 255, 0, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 0, 0.2);
+        }
+        .nav-links a.active {
+            color: #00ff00;
+            background: rgba(0, 255, 0, 0.15);
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+        }
+
+        /* Enhanced Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            background: rgba(0, 255, 0, 0.1);
+        }
+        .menu-toggle:hover {
+            background: rgba(0, 255, 0, 0.2);
+            transform: scale(1.1);
+        }
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: linear-gradient(90deg, #00ff00, #007bff);
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+            background: #00ff00;
+        }
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+            background: #00ff00;
+        }
+
+        /* Enhanced Page Header */
+        .page-header {
+            height: 60vh;
+            background: linear-gradient(135deg, #001122, #000);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            margin-top: 60px;
+        }
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 255, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 123, 255, 0.1) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+        .page-header-content {
+            z-index: 1;
+            animation: fadeIn 2s ease-in-out;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        .page-header h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px #00ff00, 0 0 40px #007bff;
+            color: #00ff00;
+            animation: bounceIn 1.5s ease-out;
+            line-height: 1.1;
+        }
+        .page-header p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            color: #ccc;
+            animation: fadeInUp 2s ease-out 0.5s both;
+            line-height: 1.6;
+        }
+
+        /* Team Filters */
+        .team-filters {
+            padding: 40px 0;
+            background: linear-gradient(135deg, #0a0a0a, #111);
+            text-align: center;
+        }
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            color: #ccc;
+            padding: 12px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: linear-gradient(135deg, #00ff00, #007bff);
+            color: #000;
+            border-color: transparent;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3);
+        }
+
+        /* Enhanced Team Section */
+        .team {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #0a0a0a, #111);
+            position: relative;
+            overflow: hidden;
+        }
+        .team::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #00ff00, transparent);
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        /* Enhanced Team Member Card */
+        .team-member {
+            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #00ff00, #007bff);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 255, 0, 0.15);
+            border-color: rgba(0, 255, 0, 0.3);
+        }
+
+        .team-member:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* Member Header */
+        .member-header {
+            padding: 30px 30px 20px;
+            position: relative;
+            background: linear-gradient(135deg, rgba(0, 255, 0, 0.03), transparent);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .member-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00ff00, #007bff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #5bec08;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: 0 0 25px rgba(0, 255, 0, 0.4);
+        }
+
+        .member-avatar::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            background: #000;
+            border-radius: 50%;
+            opacity: 0.9;
+        }
+
+        .member-avatar span {
+            position: relative;
+            z-index: 2;
+        }
+
+        .member-info {
+            flex: 1;
+        }
+
+        .member-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #00ff00;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+        }
+
+        .member-role {
+            font-size: 1.1rem;
+            color: #007bff;
+            font-weight: 600;
+            background: rgba(0, 123, 255, 0.1);
+            padding: 6px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            border: 1px solid rgba(0, 123, 255, 0.3);
+        }
+
+        /* Skills Section */
+        .skills-section {
+            padding: 0 30px 20px;
+        }
+
+        .skills-label {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.15), rgba(0, 255, 0, 0.1));
+            color: #007bff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(0, 123, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover .skill-tag {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.2);
+        }
+
+        /* Member Bio */
+        .member-bio {
+            padding: 25px 30px 30px;
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+
+        .bio-text {
+            color: #ccc;
+            line-height: 1.7;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 20px;
+            border-left: 3px solid #00ff00;
+        }
+
+        /* Member Stats */
+        .member-stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #00ff00;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Role-specific styling */
+        .role-developer .member-role {
+            background: rgba(0, 123, 255, 0.15);
+            border-color: rgba(0, 123, 255, 0.4);
+        }
+
+        .role-design .member-role {
+            background: rgba(255, 193, 7, 0.15);
+            border-color: rgba(255, 193, 7, 0.4);
+            color: #ffc107;
+        }
+
+        .role-marketing .member-role {
+            background: rgba(233, 30, 99, 0.15);
+            border-color: rgba(233, 30, 99, 0.4);
+            color: #e91e63;
+        }
+
+        .role-client .member-role {
+            background: rgba(76, 175, 80, 0.15);
+            border-color: rgba(76, 175, 80, 0.4);
+            color: #4caf50;
+        }
+
+        /* Team CTA Section */
+        .team-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #001122, #000);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .team-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(0, 255, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(0, 123, 255, 0.1) 0%, transparent 50%);
+        }
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .team-cta h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #00ff00;
+            text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        }
+        .team-cta p {
+            font-size: 1.3rem;
+            color: #ccc;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        .cta-button {
+            background-color: #00ff00;
+            color: #000;
+            padding: 15px 30px;
+            border: 2px solid #00ff00;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 15px #00ff00;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .cta-button:hover {
+            background-color: #007bff;
+            border-color: #007bff;
+            box-shadow: 0 0 25px #007bff;
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 60px 0 20px;
+            border-top: 1px solid #00ff00;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-column h3 {
+            font-size: 1.5rem;
+            color: #00ff00;
+            margin-bottom: 20px;
+        }
+        .footer-column p, .footer-column a {
+            color: #ccc;
+            margin-bottom: 10px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+        .footer-column a:hover {
+            color: #00ff00;
+        }
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover {
+            background: #00ff00;
+            color: #000;
+            transform: translateY(-5px);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #888;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.3); }
+            50% { opacity: 1; transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(1); 
+                opacity: 0.7;
+            }
+            50% { 
+                transform: scale(1.05);
+                opacity: 1;
+            }
+        }
+
+        /* Enhanced Mobile Menu */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(135deg, rgba(0, 0, 0, 0.98) 0%, rgba(0, 20, 40, 0.95) 100%);
+                backdrop-filter: blur(15px);
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+                border-top: 1px solid #00ff00;
+                animation: slideDown 0.5s ease-out;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                width: 100%;
+                margin: 5px 0;
+            }
+            .nav-links a {
+                padding: 15px 20px;
+                border-radius: 8px;
+                justify-content: center;
+                border: 1px solid transparent;
+                transition: all 0.3s ease;
+            }
+            .nav-links a:hover {
+                border-color: #00ff00;
+                transform: translateX(10px);
+            }
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .page-header h1 {
+                font-size: 3rem;
+            }
+            .page-header p {
+                font-size: 1.2rem;
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .member-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .member-avatar {
+                margin-bottom: 15px;
+            }
+            .filter-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .filter-btn {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav class="container">
+            <div class="logo">ThinkWithIT</div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> What We Are</a></li>
+                <li><a href="members.html" class="active"><i class="fas fa-users"></i> Members</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1>Meet Our Dream Team</h1>
+            <p>The brilliant minds and creative talents behind ThinkWithIT's success stories</p>
+        </div>
+    </section>
+
+    <section class="team-filters">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Members</button>
+                <button class="filter-btn" data-filter="developer">Developers</button>
+                <button class="filter-btn" data-filter="design">Design & Coordination</button>
+                <button class="filter-btn" data-filter="marketing">Marketing</button>
+                <button class="filter-btn" data-filter="client">Client Relations</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="team">
+        <div class="container">
+            <div class="team-grid">
+                <!-- Harshil - Team Lead -->
+                <div class="team-member role-developer" data-category="developer">
+                    <div class="member-header">
+                        <div class="member-avatar">
+                            <span>HD</span>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Harshil Danidhariya</h3>
+                            <div class="member-role">Full-Stack Developer | Team Lead</div>
+                        </div>
+                    </div>
+
+                    <div class="skills-section">
+                        <div class="skills-label">Core Expertise</div>
+                        <div class="skills-container">
+                            <span class="skill-tag">Frontend</span>
+                            <span class="skill-tag">Backend</span>
+                            <span class="skill-tag">Team Leadership</span>
+                            <span class="skill-tag">Smart Project Management</span>
+                            <span class="skill-tag">AI Automation</span>
+                        </div>
+                    </div>
+
+                    <div class="member-bio">
+                        <p class="bio-text">
+                            Harshil is a skilled Full Stack Developer who manages both frontend and backend development with ease. Along with strong technical knowledge, he also leads the team, coordinates tasks, and ensures that every project is delivered with quality and perfection. His leadership helps the team stay organized and productive.
+                        </p>
+                    </div>
+
+                    
+                </div>
+
+                <!-- Vansh - Innovator -->
+                <div class="team-member role-developer" data-category="developer">
+                    <div class="member-header">
+                        <div class="member-avatar">
+                            <span>VG</span>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Vansh Gohel</h3>
+                            <div class="member-role">Full-Stack Developer | Explorer</div>
+                        </div>
+                    </div>
+
+                    <div class="skills-section">
+                        <div class="skills-label">Core Expertise</div>
+                        <div class="skills-container">
+                            <span class="skill-tag">Frontend</span>
+                            <span class="skill-tag">Backend</span>
+                            <span class="skill-tag">Scripting</span>
+                            <span class="skill-tag">Innovation</span>
+                        </div>
+                    </div>
+
+                    <div class="member-bio">
+                        <p class="bio-text">
+                            Vansh works across the full development cycle—from designing user interfaces to building powerful backend logic. He loves exploring new technologies and tools, making him the innovation engine of the team. His scripting skills help automate tasks and improve workflow efficiency.
+                        </p>
+                    </div>
+
+                    
+                </div>
+
+                <!-- Vijay - Reliable Developer -->
+                <div class="team-member role-developer" data-category="developer">
+                    <div class="member-header">
+                        <div class="member-avatar">
+                            <span>VO</span>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Vijay Odedra</h3>
+                            <div class="member-role">Full-Stack Developer</div>
+                        </div>
+                    </div>
+
+                    <div class="skills-section">
+                        <div class="skills-label">Core Expertise</div>
+                        <div class="skills-container">
+                            <span class="skill-tag">Frontend</span>
+                            <span class="skill-tag">Backend</span>
+                            <span class="skill-tag">Clean Code</span>
+                            <span class="skill-tag">Performance</span>
+                        </div>
+                    </div>
+
+                    <div class="member-bio">
+                        <p class="bio-text">
+                            Vijay is a dependable developer who works on both frontend and backend development. He focuses on writing clean, efficient code and creating smooth user experiences. His balanced skillset helps the team build modern, responsive, and high-performance web applications.
+                        </p>
+                    </div>
+
+                    
+                </div>
+
+                <!-- Chirag - Designer -->
+                <div class="team-member role-design" data-category="design">
+                    <div class="member-header">
+                        <div class="member-avatar">
+                            <span>CV</span>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Chirag Vasani</h3>
+                            <div class="member-role">Designer Coordinator</div>
+                        </div>
+                    </div>
+
+                    <div class="skills-section">
+                        <div class="skills-label">Core Expertise</div>
+                        <div class="skills-container">
+                            <span class="skill-tag">UI/UX Design</span>
+                            <span class="skill-tag">Client Relations</span>
+                            <span class="skill-tag">Business Growth</span>
+                        </div>
+                    </div>
+
+                    <div class="member-bio">
+                        <p class="bio-text">
+                            Chirag contributes to both client acquisition and frontend development. He helps bring new clients to the company while also working on user interface designs. His mixed skillset adds value to both business growth and project development.
+                        </p>
+                    </div>
+
+                    
+                </div>
+
+                <!-- Vivek - Marketing -->
+                <div class="team-member role-marketing" data-category="marketing">
+                    <div class="member-header">
+                        <div class="member-avatar">
+                            <span>VK</span>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Vivek Khokhar</h3>
+                            <div class="member-role">Marketing Specialist</div>
+                        </div>
+                    </div>
+
+                    <div class="skills-section">
+                        <div class="skills-label">Core Expertise</div>
+                        <div class="skills-container">
+                            <span class="skill-tag">Digital Marketing</span>
+                            <span class="skill-tag">Social Media</span>
+                            <span class="skill-tag">Brand Strategy</span>
+                            <span class="skill-tag">Content Creation</span>
+                        </div>
+                    </div>
+
+                    <div class="member-bio">
+                        <p class="bio-text">
+                            Vivek handles social media strategies, content posting, branding, and digital marketing. He understands trends and audience behavior, helping clients grow online. His creativity and marketing knowledge bring more visibility and engagement to every client's brand.
+                        </p>
+                    </div>
+
+                    
+                </div>
+
+                <!-- Het - Client Relations -->
+                <div class="team-member role-client" data-category="client">
+                    <div class="member-header">
+                        <div class="member-avatar">
+                            <span>HD</span>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Het Dhamsaniya</h3>
+                            <div class="member-role">Client Relations Manager</div>
+                        </div>
+                    </div>
+
+                    <div class="skills-section">
+                        <div class="skills-label">Core Expertise</div>
+                        <div class="skills-container">
+                            <span class="skill-tag">Client Relations</span>
+                            <span class="skill-tag">Communication</span>
+                            <span class="skill-tag">Frontend</span>
+                            <span class="skill-tag">Backend</span>
+                        </div>
+                    </div>
+
+                    <div class="member-bio">
+                        <p class="bio-text">
+                            Het combines technical development with client relationship skills. He builds efficient applications while also helping the company connect with new clients. His dual capability makes him one of the most dynamic members of the team.
+                        </p>
+                    </div>
+
+                    
+                </div>
+
+                <!-- Divyraj - Client Relations -->
+                <div class="team-member role-client" data-category="client">
+                    <div class="member-header">
+                        <div class="member-avatar">
+                            <span>DJ</span>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Divyraj Jadeja</h3>
+                            <div class="member-role">Web Development</div>
+                        </div>
+                    </div>
+
+                    <div class="skills-section">
+                        <div class="skills-label">Core Expertise</div>
+                        <div class="skills-container">
+                            <span class="skill-tag">Frontend</span>
+                            
+                        </div>
+                    </div>
+
+                    <div class="member-bio">
+                        <p class="bio-text">
+                            Divyraj is a dependable developer who works on frontend development. He focuses on writing clean, efficient code and creating smooth user experiences. His balanced skillset helps the team build modern, responsive, and high-performance web applications.
+                        </p>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Work With Our Team?</h2>
+                <p>Our talented professionals are ready to bring your ideas to life with cutting-edge solutions and exceptional service.</p>
+                <!--<button class="cta-button">
+                    <i class="fas fa-rocket"></i> Start Your Project
+                </button>-->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ThinkWithIT</h3>
+                    <p>Transforming businesses through innovative digital solutions that drive growth and success.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="services.html">Services</a>
+                    <a href="members.html">Our Team</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <a href="#">Web Development</a>
+                    <a href="#">Social Media Management</a>
+                    <a href="#">Digital Marketing</a>
+                    <a href="#">Business Growth</a>
+                    <a href="#">IT Consulting</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Tech Street, Innovation City</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@thinkwithit.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 ThinkWithIT. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Team member filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const teamMembers = document.querySelectorAll('.team-member');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                teamMembers.forEach(member => {
+                    if (filterValue === 'all') {
+                        member.style.display = 'block';
+                        setTimeout(() => {
+                            member.style.opacity = '1';
+                            member.style.transform = 'translateY(0)';
+                        }, 100);
+                    } else {
+                        if (member.getAttribute('data-category') === filterValue) {
+                            member.style.display = 'block';
+                            setTimeout(() => {
+                                member.style.opacity = '1';
+                                member.style.transform = 'translateY(0)';
+                            }, 100);
+                        } else {
+                            member.style.opacity = '0';
+                            member.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                member.style.display = 'none';
+                            }, 300);
+                        }
+                    }
+                });
+            });
+        });
+
+        // Animate team members on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = `${entry.target.dataset.delay || 0}ms`;
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        teamMembers.forEach((member, index) => {
+            member.style.opacity = '0';
+            member.style.transform = 'translateY(50px)';
+            member.style.transition = 'all 0.6s ease';
+            member.dataset.delay = index * 100;
+            observer.observe(member);
+        });
+
+        // CTA button action
+        document.querySelector('.cta-button').addEventListener('click', () => {
+            alert('Thank you for your interest! Our team will contact you shortly to discuss your project.');
+        });
+    </script>
+</body>
+</html>
